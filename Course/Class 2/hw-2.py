@@ -1,16 +1,44 @@
 # #
 # Desafío a Entregar: Ahorcado
-# Los desafíos se entregan mediante esta página de HackerRank. Pueden ver un instructivo acerca del uso de la plataforma en este link.
 
-# Les proponemos programar el famoso juego "Ahorcado" donde un jugador ingresa una palabra y otro jugador intenta adivinarla. En cada turno, el segundo jugador indica una letra que cree que se encuentra en la palabra elegida.
+# Les proponemos programar el famoso juego "Ahorcado" donde un jugador ingresa una palabra y
+# otro jugador intenta adivinarla. En cada turno, el segundo jugador indica una letra que cree
+# que se encuentra en la palabra elegida.
 
-# Una vez que el segundo jugador adivina todas las letras que se encuentran en la palabra, el juego termina y se muestra la cantidad de intentos que fueron necesarios. En esta versión del juego, si se adivina una letra que aparece varias veces en la palabra, todas las ocurrencias cuentan como adivinadas.
+# Una vez que el segundo jugador adivina todas las letras que se encuentran en la palabra,
+# el juego termina y se muestra la cantidad de intentos que fueron necesarios. En esta versión del juego,
+# si se adivina una letra que aparece varias veces en la palabra, todas las ocurrencias cuentan como adivinadas.
 
 # Formato del input:
 
 # Primero se recibe la palabra que se debe adivinar (por defecto vendrá en mayúsculas).
 # Luego se reciben cierta cantidad de letras, una por línea, sin repetir. (por defecto vendrán en mayúsculas).
-# Una vez que se haya adivinado la palabra del ahorcado, ya no se recibirán más letras. Su tarea es determinar la cantidad de intentos que fueron necesarios para adivinar la palabra completa, e imprimir ese número.
+# Una vez que se haya adivinado la palabra del ahorcado, ya no se recibirán más letras. Su tarea es determinar
+# la cantidad de intentos que fueron necesarios para adivinar la palabra completa, e imprimir ese número.
+
+
+word = input().upper()
+letter = input().upper()
+lettersList = list()
+counter = 0
+intents = 0
+length = len(word)
+while counter < length:
+    if letter in lettersList:
+        print("letra ya dicha")
+    elif len(letter) == 1 and letter in word:
+        sum = word.count(letter)
+        counter = counter + sum
+        intents += 1
+        lettersList.append(letter)
+    else:
+        intents += 1
+        lettersList.append(letter)
+    if counter != len(word):
+        letter = input().upper()
+
+print(intents)
+
 
 # Ejemplos:
 
