@@ -14,18 +14,18 @@
 
 # Output: 9 (Los pasos a seguir son: 13, 40, 20, 10, 5, 16, 8, 4, 2, 1)
 
-# number = int(input("number: "))
-# count = 0
-# #stop = 1
-# print(int(number))
-# while number != 1:
-#     if number % 2 == 0:
-#         number = number / 2
-#         print(int(number))
-#         count += 1
-#     else:
-#         number = number * 3 + 1
-#         print(int(number))
-#         count += 1
+number = int(input("number: "))
+count = 0
+#stop = 1
+print(int(number))
+while number != 1:
+    if number % 2 == 0:
+        number = number / 2
+        print(int(number))
+        count += 1
+    else:
+        number = number * 3 + 1
+        print(int(number))
+        count += 1
 
-# print("total steps: ", count)
+print("total steps: ", count)
