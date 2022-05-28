@@ -26,13 +26,19 @@ word = input("Word: ").upper()
 while " " in word or len(word) == 0:
     print("ERROR! Delete blanks spaces")
     word = input("Word: ").upper()
-letter = input("Letter: ").upper()
 lettersList = list()
+for x in word:
+    if x in lettersList:
+        print(x)
+    else:
+        print("_")
+letter = input("Letter: ").upper()
 correctLetters = list()
 incorrectLetters = list()
 counter = 0
 attempts = 0
 length = len(word)
+
 while counter < length and attempts < 10:
     if attempts == 9:
         print("Be careful! You have one last try")
@@ -45,16 +51,17 @@ while counter < length and attempts < 10:
         attempts += 1
         lettersList.append(letter)
         correctLetters.append(letter)
-        for x in correctLetters:
-            print(x)
     else:
         print("Try Again!")
         attempts += 1
         lettersList.append(letter)
         incorrectLetters.append(letter)
-        for x in incorrectLetters:
-            print(x)
     if counter != len(word):
+        for x in word:
+            if x in lettersList:
+                print(x)
+            else:
+                print("_")
         letter = input("Letter: ").upper()
         print("Attempts: ", attempts)
 if attempts >= 10:
